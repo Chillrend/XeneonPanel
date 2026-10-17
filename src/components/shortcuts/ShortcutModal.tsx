@@ -308,7 +308,7 @@ export const ShortcutModal: React.FC<ShortcutModalProps> = ({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-sm animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 animate-in fade-in duration-150">
       <ShortcutForm
         key={editingShortcut ? editingShortcut.id : 'new-shortcut'}
         editingShortcut={editingShortcut}

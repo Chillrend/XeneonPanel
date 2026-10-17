@@ -40,11 +40,11 @@ export const ControlCenterDrawer: React.FC<ControlCenterDrawerProps> = ({ isOpen
 
   return (
     <>
-      {/* Dark frosted backdrop */}
+      {/* Dark backdrop */}
       {isOpen && (
         <div
           onClick={onClose}
-          className="fixed inset-0 z-40 bg-black/65 backdrop-blur-sm animate-in fade-in duration-200"
+          className="fixed inset-0 z-40 bg-black/75"
         />
       )}
 
@@ -54,7 +54,7 @@ export const ControlCenterDrawer: React.FC<ControlCenterDrawerProps> = ({ isOpen
           isOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 pointer-events-none'
         }`}
       >
-        <div className="w-full max-w-4xl mx-auto bg-[#0d0f17]/95 backdrop-blur-2xl border-b border-white/10 rounded-b-3xl shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9)] p-5 flex flex-col gap-4 text-slate-100">
+        <div className="w-full max-w-4xl mx-auto bg-[#0d0f17] border-b border-white/10 rounded-b-3xl shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9)] p-5 flex flex-col gap-4 text-slate-100">
           {/* Top Status Header */}
           <div className="flex items-center justify-between pb-2 border-b border-white/5">
             <div className="flex items-center gap-3">

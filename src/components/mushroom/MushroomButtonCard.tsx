@@ -127,7 +127,7 @@ export const MushroomButtonCard: React.FC<MushroomButtonCardProps> = ({
         {subtitle && (
           <div className="text-xs text-slate-400 truncate mt-0.5 flex items-center gap-1.5">
             {active && (
-              <span className={`w-1.5 h-1.5 rounded-full ${styles.iconBgActive} animate-pulse`} />
+              <span className={`w-1.5 h-1.5 rounded-full ${styles.iconBgActive} shadow-[0_0_6px_currentColor]`} />
             )}
             {subtitle}
           </div>

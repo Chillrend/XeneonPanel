@@ -68,7 +68,7 @@ export const PcPowerControls: React.FC<PcPowerControlsProps> = ({
         title="Mulai Ulang Komputer"
         className={`p-2.5 rounded-2xl border active:scale-95 transition-all flex flex-col items-center justify-center gap-1.5 cursor-pointer disabled:opacity-40 ${
           confirmAction === 'restart'
-            ? 'bg-amber-500/20 border-amber-500 text-amber-300 animate-pulse'
+            ? 'bg-amber-500/20 border-amber-500 text-amber-300 shadow-[0_0_12px_rgba(245,158,11,0.4)]'
             : 'bg-[#151822] border-white/5 hover:border-amber-500/30 hover:bg-[#1a1e2b] text-slate-300 hover:text-amber-400'
         }`}
       >
@@ -92,7 +92,7 @@ export const PcPowerControls: React.FC<PcPowerControlsProps> = ({
         title="Matikan PC"
         className={`p-2.5 rounded-2xl border active:scale-95 transition-all flex flex-col items-center justify-center gap-1.5 cursor-pointer disabled:opacity-40 ${
           confirmAction === 'shutdown'
-            ? 'bg-rose-500/20 border-rose-500 text-rose-300 animate-pulse'
+            ? 'bg-rose-500/20 border-rose-500 text-rose-300 shadow-[0_0_12px_rgba(244,63,94,0.4)]'
             : 'bg-[#151822] border-white/5 hover:border-rose-500/30 hover:bg-[#1a1e2b] text-slate-300 hover:text-rose-400'
         }`}
       >

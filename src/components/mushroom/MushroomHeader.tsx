@@ -63,7 +63,7 @@ export const MushroomHeader: React.FC<MushroomHeaderProps> = ({
   const influxLive = systemStatus?.influxDb.mode === 'live';
 
   return (
-    <header className="w-full bg-[#101218]/90 backdrop-blur-md border-b border-white/5 px-4 py-2.5 flex flex-wrap items-center justify-between gap-3 select-none">
+    <header className="w-full bg-[#101218] border-b border-white/5 px-4 py-2.5 flex flex-wrap items-center justify-between gap-3 select-none">
       {/* Left: Clock & Date */}
       <div className="flex items-center gap-3">
         <div className="w-9 h-9 rounded-xl bg-white/5 border border-white/5 flex items-center justify-center text-slate-300">
@@ -125,7 +125,9 @@ export const MushroomHeader: React.FC<MushroomHeaderProps> = ({
               <Monitor className="w-3.5 h-3.5 text-blue-400" />
               <span
                 className={`w-1.5 h-1.5 rounded-full ${
-                  pcOnline ? 'bg-emerald-400 animate-pulse' : 'bg-slate-500'
+                  pcOnline
+                    ? 'bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)]'
+                    : 'bg-slate-500'
                 }`}
               />
             </div>
@@ -183,7 +185,9 @@ export const MushroomHeader: React.FC<MushroomHeaderProps> = ({
           <span className="hidden sm:inline">HA</span>
           <span
             className={`w-2 h-2 rounded-full ${
-              haLive ? 'bg-emerald-400 animate-pulse' : 'bg-amber-400'
+              haLive
+                ? 'bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)]'
+                : 'bg-amber-400 shadow-[0_0_8px_rgba(251,191,36,0.6)]'
             }`}
           />
         </div>
@@ -197,7 +201,9 @@ export const MushroomHeader: React.FC<MushroomHeaderProps> = ({
           <span className="hidden sm:inline">Influx</span>
           <span
             className={`w-2 h-2 rounded-full ${
-              influxLive ? 'bg-emerald-400 animate-pulse' : 'bg-cyan-400'
+              influxLive
+                ? 'bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)]'
+                : 'bg-cyan-400 shadow-[0_0_8px_rgba(34,211,238,0.6)]'
             }`}
           />
         </div>

@@ -9,7 +9,7 @@ interface DashboardGridProps {
 export const DashboardGrid: React.FC<DashboardGridProps> = ({ mode, children }) => {
   if (mode === 'ribbon') {
     return (
-      <div className="w-full flex items-stretch gap-3 overflow-x-auto p-4 snap-x snap-mandatory">
+      <div className="w-full flex items-stretch gap-3 overflow-x-auto p-2 snap-x snap-mandatory">
         {children}
       </div>
     );
@@ -17,7 +17,7 @@ export const DashboardGrid: React.FC<DashboardGridProps> = ({ mode, children }) 
 
   // Default Grid Layout
   return (
-    <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3.5 p-4">
+    <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 p-2">
       {children}
     </div>
   );

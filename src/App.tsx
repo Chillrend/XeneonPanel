@@ -227,7 +227,7 @@ export function App() {
       />
 
       {/* Main Panel Content Area - constrained to fit within Xeneon Edge display */}
-      <main className="flex-1 w-full max-w-[1920px] mx-auto overflow-y-auto px-3 py-2">
+      <main className="flex-1 w-full max-w-[1920px] mx-auto overflow-hidden px-3 py-2">
         <DashboardGrid mode={layoutMode}>
           {/* ======================================================== */}
           {/* COLUMN 1: Home Assistant Bedroom Controls               */}
@@ -428,7 +428,7 @@ export function App() {
       {/* Compact Bottom Status Bar */}
       <footer className="w-full bg-[#0a0b0e] border-t border-white/5 px-4 py-1.5 flex items-center justify-between text-[11px] text-slate-500">
         <div className="flex items-center gap-2">
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_6px_rgba(16,185,129,0.8)]" />
           <span>Xeneon Edge Viewport</span>
         </div>
         <div className="font-mono text-[10px]">
