@@ -41,29 +41,13 @@
   }
 }
 
-/* Custom ApexCharts overrides for ultra-sleek Mushroom style */
-.apexcharts-canvas {
-  margin: 0 auto;
-}
-
-.apexcharts-tooltip {
-  background: rgba(18, 20, 26, 0.95) !important;
-  border: 1px solid rgba(255, 255, 255, 0.12) !important;
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5) !important;
-  backdrop-filter: blur(8px);
-  border-radius: 0.75rem !important;
-  color: #fff !important;
-  font-family: inherit !important;
-}
-
-.apexcharts-tooltip-title {
-  background: rgba(255, 255, 255, 0.05) !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
-  font-weight: 600 !important;
-  padding: 4px 8px !important;
-}
-
-.apexcharts-xaxistooltip,
-.apexcharts-yaxistooltip {
-  display: none !important;
+/* GPU Compositing Layer Lock - prevents Chromium iframe repaint flicker */
+header,
+main,
+svg,
+[class*="rounded-2xl"],
+[class*="rounded-3xl"] {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }

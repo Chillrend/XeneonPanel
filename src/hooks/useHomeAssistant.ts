@@ -14,11 +14,28 @@ export function useHomeAssistant(pollIntervalMs: number = 3000) {
       const data: HAEntity[] = await res.json();
       
       if (isMountedRef.current) {
-        const entityMap: Record<string, HAEntity> = {};
-        for (const item of data) {
-          entityMap[item.entity_id] = item;
-        }
-        setEntities(entityMap);
+        setEntities((prev) => {
+          let hasChanged = false;
+          const entityMap: Record<string, HAEntity> = {};
+
+          for (const item of data) {
+            entityMap[item.entity_id] = item;
+            const p = prev[item.entity_id];
+            if (!p || p.state !== item.state || p.attributes?.brightness !== item.attributes?.brightness) {
+              hasChanged = true;
+            }
+          }
+
+          if (Object.keys(prev).length !== Object.keys(entityMap).length) {
+            hasChanged = true;
+          }
+
+          if (!hasChanged && Object.keys(prev).length > 0) {
+            return prev;
+          }
+
+          return entityMap;
+        });
         setLastError(null);
       }
     } catch (err: any) {

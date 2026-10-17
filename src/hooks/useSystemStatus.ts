@@ -11,7 +11,19 @@ export function useSystemStatus() {
         const res = await fetch('/api/status');
         if (res.ok) {
           const data: SystemStatus = await res.json();
-          if (isMounted) setStatus(data);
+          if (isMounted) {
+            setStatus((prev) => {
+              if (
+                prev &&
+                prev.status === data.status &&
+                prev.homeAssistant?.mode === data.homeAssistant?.mode &&
+                prev.influxDb?.mode === data.influxDb?.mode
+              ) {
+                return prev;
+              }
+              return data;
+            });
+          }
         }
       } catch {
         // Ignored

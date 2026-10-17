@@ -25,6 +25,12 @@ const server = http.createServer(app);
 const PORT = process.env.PORT || 3001;
 
 app.use(cors());
+app.use((_req, res, next) => {
+  res.setHeader('Access-Control-Allow-Private-Network', 'true');
+  res.setHeader('Content-Security-Policy', "frame-ancestors * 'self' app: file:;");
+  res.setHeader('X-Frame-Options', 'ALLOWALL');
+  next();
+});
 app.use(express.json());
 
 // Initialize WebSocket hub for PC Agent and UI clients
