@@ -1,0 +1,26 @@
+services:
+  xeneonpanel:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: xeneonpanel:latest
+    container_name: xeneonpanel
+    restart: unless-stopped
+    ports:
+      - "3001:3001"
+    environment:
+      - PORT=3001
+      - NODE_ENV=production
+      # Home Assistant Configuration
+      - HA_URL=${HA_URL:-http://homeassistant.local:8123}
+      - HA_TOKEN=${HA_TOKEN:-}
+      # InfluxDB 2.x Configuration
+      - INFLUX_URL=${INFLUX_URL:-http://localhost:8086}
+      - INFLUX_TOKEN=${INFLUX_TOKEN:-}
+      - INFLUX_ORG=${INFLUX_ORG:-home}
+      - INFLUX_BUCKET=${INFLUX_BUCKET:-home_assistant}
+      # Windows 11 PC Companion Agent Token
+      - PC_AGENT_TOKEN=${PC_AGENT_TOKEN:-xeneon-secret-token}
+    volumes:
+      # Persistent SQLite shortcuts database directory
+      - ./data:/app/server/data
