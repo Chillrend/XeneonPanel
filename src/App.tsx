@@ -38,7 +38,7 @@ export function App() {
   // ==========================================
   // HOME ASSISTANT: BUTTONS & CONTROLS ONLY
   // ==========================================
-  const { entities, toggle, setBrightness, callService, refetch: refetchHA } = useHomeAssistant(3000);
+  const { entities, toggle, setBrightness, callService, refetch: refetchHA } = useHomeAssistant(5000);
 
   const allBedroomLamps = entities['light.my_bedroom_light'];
   const lampAB = entities['light.lamp_a_b'];
@@ -63,7 +63,7 @@ export function App() {
     entityId: 'kamar_farhan_tnh_sonoff_temperature',
     range: '2h',
     window: '5m',
-    pollIntervalMs: 8000,
+    pollIntervalMs: 15000,
   });
 
   const roomHumidityQuery = useInfluxQuery({
@@ -73,7 +73,7 @@ export function App() {
     entityId: 'kamar_farhan_tnh_sonoff_humidity',
     range: '2h',
     window: '5m',
-    pollIntervalMs: 8000,
+    pollIntervalMs: 15000,
   });
 
   // Column 2 - Row 2: Whole Room Power Graph
@@ -84,7 +84,7 @@ export function App() {
     entityId: 'farhan_s_room_total_power',
     range: '1h',
     window: '1m',
-    pollIntervalMs: 4000,
+    pollIntervalMs: 8000,
   });
 
   // Column 2 - Row 3: Room Voltage Vitals Graph
@@ -95,7 +95,7 @@ export function App() {
     entityId: 'farhan_s_room_voltage_avg',
     range: '1h',
     window: '1m',
-    pollIntervalMs: 5000,
+    pollIntervalMs: 10000,
   });
 
   // Column 3 - Row 1: Baremetal CPU Usage (PVE1 & NVR)
@@ -108,7 +108,7 @@ export function App() {
     tagValue: 'cpu-total',
     range: '1h',
     window: '1m',
-    pollIntervalMs: 4000,
+    pollIntervalMs: 8000,
   });
 
   const nvrCpuQuery = useInfluxQuery({
@@ -120,7 +120,7 @@ export function App() {
     tagValue: 'cpu-total',
     range: '1h',
     window: '1m',
-    pollIntervalMs: 4000,
+    pollIntervalMs: 8000,
   });
 
   // Column 3 - Row 2: Homelab UPS Battery SOC & Runtime
@@ -131,7 +131,7 @@ export function App() {
     host: 'pve1',
     range: '1h',
     window: '2m',
-    pollIntervalMs: 6000,
+    pollIntervalMs: 12000,
   });
 
   const upsRuntimeQuery = useInfluxQuery({
@@ -141,7 +141,7 @@ export function App() {
     host: 'pve1',
     range: '1h',
     window: '2m',
-    pollIntervalMs: 6000,
+    pollIntervalMs: 12000,
   });
 
   // Column 3 - Row 3: Mikrotik ether1 rate & Ping latency
@@ -153,7 +153,7 @@ export function App() {
     isNetworkRate: true,
     range: '30m',
     window: '1m',
-    pollIntervalMs: 4000,
+    pollIntervalMs: 8000,
   });
 
   const pingQuery = useInfluxQuery({
@@ -164,7 +164,7 @@ export function App() {
     url: '1.1.1.1',
     range: '30m',
     window: '1m',
-    pollIntervalMs: 4000,
+    pollIntervalMs: 8000,
   });
 
   const handleRefreshAll = () => {

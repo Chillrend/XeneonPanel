@@ -31,7 +31,10 @@ else:
     PYCAW_AVAILABLE = False
 
 # Load configuration
-SCRIPT_DIR = Path(__file__).resolve().parent
+if getattr(sys, "frozen", False):
+    SCRIPT_DIR = Path(sys.executable).resolve().parent
+else:
+    SCRIPT_DIR = Path(__file__).resolve().parent
 CONFIG_FILE = SCRIPT_DIR / "config.json"
 
 def load_config():

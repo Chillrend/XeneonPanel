@@ -65,7 +65,7 @@ const accentColors: Record<
   },
 };
 
-export const MushroomGraphCard: React.FC<MushroomGraphCardProps> = ({
+export const MushroomGraphCard: React.FC<MushroomGraphCardProps> = React.memo(({
   title,
   value,
   unit = '',
@@ -144,4 +144,4 @@ export const MushroomGraphCard: React.FC<MushroomGraphCardProps> = ({
       </div>
     </div>
   );
-};
+});
