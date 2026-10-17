@@ -58,6 +58,8 @@ export const SparklineChart: React.FC<SparklineChartProps> = React.memo(({
         animations: {
           enabled: false,
         },
+        redrawOnWindowResize: false,
+        redrawOnParentResize: false,
         background: 'transparent',
       },
       colors: [hexColor],
